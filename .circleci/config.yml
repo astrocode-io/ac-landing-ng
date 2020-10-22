@@ -1,0 +1,40 @@
+version: 2.1
+description: |
+  copy files to S3 bucket and then create an Cloudfront invalidation
+  on the distribution.
+jobs:
+  deploy:
+    description: |
+      build the project and deploys to Cloudfront
+    docker:
+      - image: circleci/node:12.18.3
+    steps:
+      - checkout
+      - run:
+          name: "Install dependencies and build project"
+          command: |
+            npm install
+            npm run build
+      - save_cache:
+          name: "Saving cache"
+          paths:
+            - node_modules
+          key: dependencies-node-{{ checksum "package.json" }}
+      - run:
+          name: "Deploy"
+          command: |
+            serverless syncToS3
+      - run:
+          name: "Print domain info"
+          command: |
+            serverless domainInfo
+      - run:
+          name: "Invalidate CloudFront Cache"
+          command: |
+            serverless invalidateCloudFrontCache
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - deploy:
+          context: mdelgado
