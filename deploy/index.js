@@ -8,7 +8,7 @@ class ServerlessPlugin {
     this.options = options;
     this.commands = {
       syncToS3: {
-        usage: 'Deploys the `app` directory to your bucket',
+        usage: 'Deploys the `dist` directory to your bucket',
         lifecycleEvents: [
           'sync',
         ],
@@ -44,7 +44,7 @@ class ServerlessPlugin {
     if (this.serverless.variables.service.provider.profile) {
       command = `${command} --profile ${this.serverless.variables.service.provider.profile}`;
     }
-    const result = spawnSync(command, args);
+    const result = spawnSync(command, args, {shell: true});
     const stdout = result.stdout.toString();
     const sterr = result.stderr.toString();
     if (stdout) {
@@ -57,13 +57,13 @@ class ServerlessPlugin {
     return {stdout, sterr};
   }
 
-  // syncs the `app` directory to the provided bucket
+  // syncs the `dist` directory to the provided bucket
   syncDirectory() {
     const s3Bucket = this.serverless.variables.service.custom.s3Bucket;
     const args = [
       's3',
       'sync',
-      'app/',
+      'dist/',
       `s3://${s3Bucket}/`,
       '--delete',
     ];

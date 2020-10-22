@@ -1,16 +1,17 @@
-service: single-page-app-via-cloudfront
+service: fe-skeleton-sls-ng
 
-frameworkVersion: ">=1.2.0 <2.0.0"
+frameworkVersion: ">=2.0.0"
 
 plugins:
-  - serverless-single-page-app-plugin
+  - sls-deploy-plugin
 
 custom:
-  s3Bucket: yourBucketName123
+  s3Bucket: ${env:S3_BUCKET}
 
 provider:
   name: aws
   runtime: nodejs12.x
+  region: us-east-1
 
 resources:
   Resources:

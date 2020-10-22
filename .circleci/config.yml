@@ -2,6 +2,7 @@ version: 2.1
 description: |
   copy files to S3 bucket and then create an Cloudfront invalidation
   on the distribution.
+
 jobs:
   deploy:
     description: |
@@ -10,10 +11,16 @@ jobs:
       - image: circleci/node:12.18.3
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - dependencies-node-{{ checksum "package.json" }}
+            - dependencies-node
       - run:
           name: "Install dependencies and build project"
           command: |
             npm install
+            sudo npm i -g serverless
+            export NG_CLI_ANALYTICS=false
             npm run build
       - save_cache:
           name: "Saving cache"
@@ -21,20 +28,40 @@ jobs:
             - node_modules
           key: dependencies-node-{{ checksum "package.json" }}
       - run:
+          name: "Deploy infrastructure"
+          command: |
+            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${CIRCLE_BRANCH}
+            sls config credentials --provider aws --key ${AWS_ACCESS_KEY_ID} --secret ${AWS_SECRET_ACCESS_KEY} --region ${AWS_REGION}
+            sls deploy --stage dev -v
+      - run:
+          name: "Install PIP"
+          command: sudo apt-get install python-pip python-dev
+      - run:
+          name: "Install awscli"
+          command: sudo pip install awscli
+      - run:
           name: "Deploy"
           command: |
+            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${CIRCLE_BRANCH}
             serverless syncToS3
       - run:
           name: "Print domain info"
           command: |
+            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${CIRCLE_BRANCH}
             serverless domainInfo
       - run:
           name: "Invalidate CloudFront Cache"
           command: |
+            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${CIRCLE_BRANCH}
             serverless invalidateCloudFrontCache
 workflows:
   version: 2
   build_and_deploy:
     jobs:
       - deploy:
-          context: mdelgado
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+          context: maxidelgado
