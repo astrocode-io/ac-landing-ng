@@ -1,4 +1,4 @@
-service: fe-skeleton-sls-ng
+service: single-page-app-via-cloudfront
 
 frameworkVersion: ">=2.0.0"
 
@@ -20,7 +20,12 @@ resources:
       Type: AWS::S3::Bucket
       Properties:
         BucketName: ${self:custom.s3Bucket}
-        AccessControl: PublicRead
+        AccessControl: Private
+        PublicAccessBlockConfiguration:
+          BlockPublicAcls: true
+          BlockPublicPolicy: true
+          IgnorePublicAcls: true
+          RestrictPublicBuckets: true
         WebsiteConfiguration:
           IndexDocument: index.html
           ErrorDocument: index.html
@@ -32,9 +37,10 @@ resources:
           Ref: WebAppS3Bucket
         PolicyDocument:
           Statement:
-            - Sid: PublicReadGetObject
+            - Sid: PolicyForCloudFrontPrivateContent
               Effect: Allow
-              Principal: "*"
+              Principal:
+                AWS: { "Fn::Join": [" ", ["arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity", { Ref: CloudfrontOriginAccessIdentity } ] ] }
               Action:
                 - s3:GetObject
               Resource: arn:aws:s3:::${self:custom.s3Bucket}/*
@@ -47,13 +53,17 @@ resources:
             - DomainName: ${self:custom.s3Bucket}.s3.amazonaws.com
               ## An identifier for the origin which must be unique within the distribution
               Id: WebApp
-              CustomOriginConfig:
-                HTTPPort: 80
-                HTTPSPort: 443
-                OriginProtocolPolicy: https-only
+              #CustomOriginConfig:
+              #HTTPPort: 80
+              #HTTPSPort: 443
+              #OriginProtocolPolicy: https-only
               ## In case you want to restrict the bucket access use S3OriginConfig and remove CustomOriginConfig
-              # S3OriginConfig:
-              #   OriginAccessIdentity: origin-access-identity/cloudfront/E127EXAMPLE51Z
+              S3OriginConfig:
+                OriginAccessIdentity:
+                  Fn::Join:
+                    - ''
+                    - - 'origin-access-identity/cloudfront/'
+                      - Ref: CloudfrontOriginAccessIdentity
           Enabled: 'true'
           ## Uncomment the following section in case you are using a custom domain
           # Aliases:
@@ -91,6 +101,11 @@ resources:
           #   IncludeCookies: 'false'
           #   Bucket: mylogs.s3.amazonaws.com
           #   Prefix: myprefix
+    CloudfrontOriginAccessIdentity:
+      Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+      Properties:
+        CloudFrontOriginAccessIdentityConfig:
+          Comment: "access-identity-${self:custom.s3Bucket}.s3.amazonaws.com"
 
   ## In order to print out the hosted domain via `serverless info` we need to define the DomainName output for CloudFormation
   Outputs:
