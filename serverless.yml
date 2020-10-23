@@ -4,6 +4,7 @@ frameworkVersion: ">=2.0.0"
 
 plugins:
   - sls-deploy-plugin
+  - '@silvermine/serverless-plugin-cloudfront-lambda-edge'
 
 custom:
   s3Bucket: ${env:S3_BUCKET}
@@ -12,6 +13,13 @@ provider:
   name: aws
   runtime: nodejs12.x
   region: us-east-1
+
+functions:
+  securityHeaders:
+    handler: deploy/security-headers.handler
+    lambdaAtEdge:
+      distribution: 'WebAppCloudFrontDistribution'
+      eventType: 'origin-response'
 
 resources:
   Resources:
