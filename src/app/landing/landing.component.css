@@ -1,0 +1,81 @@
+.content-area {
+    padding: 0 !important;
+    overflow-x: hidden;
+}
+
+.header-rape {
+    color: white;
+    background-color: hsl(198, 100%, 15%);
+}
+
+.nav-text {
+    color: white;
+}
+
+.dark-matter {
+    color: white;
+}
+
+.neu-nav-button {
+    padding: 5px;
+    height: 20px;
+    border-radius: 10%;
+
+    /* box-shadow: 0px 5px 15px hsl(198, 0%, 65%), -0px -5px 15px hsl(255, 0%, 95%); */
+    box-shadow: 0px -6px 10px transparent, 0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.player-container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.autism {
+    margin: 3rem;
+}
+
+.neuIcon {
+    width: 24px;
+    height: 24px;
+    color: hsl(198, 0%, 55%);
+}
+
+.neuButton {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #f2f2f2;
+    /* box-shadow: 0px 5px 15px hsl(198, 0%, 65%), -0px -5px 15px hsl(255, 0%, 95%); */
+    box-shadow: 0px -6px 10px rgba(255, 255, 255, 1),
+        0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+section {
+    min-height: 70%;
+}
+
+footer {
+    width: 100%;
+    background-color: hsl(198, 0%, 0%);
+    text-align: center;
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 70px;
+}
+
+footer a {
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}
+
+.home {
+    background-color: hsl(198, 100%, 21%);
+    color: white !important;
+}
+
+.home h1, h4 {
+    color: white
+}
