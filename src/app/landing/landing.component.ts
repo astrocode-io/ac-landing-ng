@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 export class LandingComponent {
 
   constructor() { }
+
+  public toTop() {
+    document.getElementById("products").scrollIntoView();
+  }
 }

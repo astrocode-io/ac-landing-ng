@@ -1,0 +1,39 @@
+.ac-card {
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px 5px rgb(155, 95, 212, 0.3);
+  border: 0px;
+  width: 350px;
+}
+
+.ac-card-sm {
+  width: 350px;
+}
+
+.ac-card-lg {
+  width: 700px;
+}
+
+.ac-card-body {
+  text-align: center;
+}
+
+.card-image {
+  border-radius: 50% !important;
+  aspect-ratio: 1;
+}
+
+.image-radius {
+  border-radius: 30px !important;
+  box-shadow: 0px 5px 5px 5px rgba(95, 104, 224, 0.3);
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+  object-fit: cover;
+}
+
+.title {
+  padding-top: 8px;
+}

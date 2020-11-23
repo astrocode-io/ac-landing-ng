@@ -1,0 +1,19 @@
+<div class="clr-row clr-align-items-center">
+  <div *ngFor="let path of images" class="clr-col-12">
+    <div class="card ac-card">
+      <div class="card-img">
+        <div class="clr-row clr-justify-content-center">
+          <clr-icon
+            attr.shape="{{ icon }}"
+            class="is-success"
+            size="64"
+          ></clr-icon>
+        </div>
+      </div>
+      <div class="card-block ac-card-body">
+        <h2>{{ title }}</h2>
+        <p class="p3">{{ description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
