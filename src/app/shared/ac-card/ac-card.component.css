@@ -24,14 +24,19 @@
 }
 
 .image-radius {
-  border-radius: 30px !important;
-  box-shadow: 0px 5px 5px 5px rgba(95, 104, 224, 0.3);
-  width: 100px;
-  height: 100px;
+  border-radius: 50px !important;
+  box-shadow: 0px 10px 20px 0px rgba(50, 170, 245, 0.74);
+  min-width: 80px;
+  padding: 1rem;
+  min-height: 80px;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   background-position: center !important;
   object-fit: cover;
+}
+.image-gradient {
+  /* background-color:purple; */
+  background:  linear-gradient(45deg, #2D8AEE 34.04%, rgba(50, 170, 245, 0.74) 66.71%, rgba(55, 201, 251, 0.21) 92.71%);
 }
 
 .title {

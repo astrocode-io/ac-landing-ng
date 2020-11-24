@@ -8,3 +8,27 @@ li {
 a {
     text-decoration: none;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #574985;
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #7a4eca;
+  border-radius: 10px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6c43b8;
+
+}
