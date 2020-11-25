@@ -2,12 +2,7 @@
   <clr-header class="header-rape">
     <div class="branding">
       <a href="/" class="nav-link">
-        <img
-          style="color: white"
-          src="../assets/Logo_white.svg"
-          alt="logo"
-          width="45px"
-        />
+        <img style="color: white" src="../assets/Logo_white.svg" alt="logo" width="45px" />
         <span class="title" style="color: white; padding-left: 1rem">
           Astrocode
         </span>
@@ -15,16 +10,9 @@
     </div>
 
     <div class="header-nav" [clr-nav-level]="1">
-      <a href="#company" class="nav-link"
-        ><span class="nav-text">COMPANY</span></a
-      >
-      <a href="#products" class="nav-link" (click)="toTop()"
-        ><span class="nav-text">PRODUCTS</span></a
-      >
-
-      <a href="#contact" class="nav-link"
-        ><span class="nav-text">CONTACT</span></a
-      >
+      <a href="#company" class="nav-link"><span class="nav-text">COMPANY</span></a>
+      <a href="#products" class="nav-link" (click)="toTop()"><span class="nav-text">PRODUCTS</span></a>
+      <a href="#contact" class="nav-link"><span class="nav-text">CONTACT</span></a>
     </div>
 
     <div class="header-actions">
@@ -41,55 +29,26 @@
 
   <div class="content-container">
     <div class="content-area">
-      <section
-        #home
-        class="home clr-row clr-align-items-center clr-justify-content-around"
-      >
-        <div class="clr-row clr-align-items-center">
-          <div class="clr-col">
-            <h1>Find your online solutions!</h1>
-            <h4>Browse our e-commerce solutions</h4>
-          </div>
-          <div class="clr-col-md-6">
-            <img src="../../assets/clip-966.png" alt="logo" width="100%" />
-          </div>
-        </div>
-      </section>
 
-      <section
-        #products
-        class="home clr-row clr-align-items-center clr-justify-content-around"
-      >
+      <landing-home></landing-home>
+
+      <section #products class="home clr-row clr-align-items-center clr-justify-content-around">
         <h1>Our best selling services</h1>
 
         <div class="clr-break-row"></div>
-        <div
-          class="clr-row clr-align-items-start clr-justify-content-around clr-col-sm-12 clr-col-lg-8"
-        >
-          <ac-card
-            [title]="'Landings'"
-            [icon]="'world'"
-            [description]="
+        <div class="clr-row clr-align-items-start clr-justify-content-around clr-col-sm-12 clr-col-lg-8">
+          <ac-card [title]="'Landings'" [icon]="'world'" [description]="
               '
           Pick from our beautifully crafted templates and customize it to your heatr\'s content.'
-            "
-          ></ac-card>
+            "></ac-card>
 
-          <ac-card
-            [title]="'Mailing'"
-            [icon]="'envelope'"
-            [description]="
+          <ac-card [title]="'Mailing'" [icon]="'envelope'" [description]="
               'Ever wanted to have your own corporate e-mail address? We can make that happen.'
-            "
-          ></ac-card>
+            "></ac-card>
 
-          <ac-card
-            [title]="'Hosting'"
-            [icon]="'host'"
-            [description]="
+          <ac-card [title]="'Hosting'" [icon]="'host'" [description]="
               'We provide the perfect hosting solution and for your great online services.'
-            "
-          ></ac-card>
+            "></ac-card>
         </div>
 
         <div class="clr-break-row"></div>
@@ -113,23 +72,7 @@
         </div>
       </section>
 
-      <section
-        #company
-        class="home clr-row clr-align-items-center clr-justify-content-around"
-      >
-        <div class="clr-col-lg-4">
-          <h1>COMPANY</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum
-          </p>
-        </div>
-      </section>
+      <landing-company></landing-company>
 
       <footer #contact>
         <ul>
