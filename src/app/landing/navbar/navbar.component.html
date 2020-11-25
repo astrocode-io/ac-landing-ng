@@ -1,25 +1,16 @@
-<div class="branding">
-    <a href="/" class="nav-link">
-        <img style="color: white" src="../assets/Logo_white.svg" alt="logo" width="45px" />
-        <span class="title" style="color: white; padding-left: 1rem">
-            Astrocode
-        </span>
-    </a>
-</div>
+<div class="nav-container">
+    <div class="branding">
+        <a href="/" class="nav-link">
+            <img style="color: white" src="../assets/Logo_white.svg" alt="logo" width="45px" />
+            <span class="title" style="color: white; padding-left: 1rem">
+                Astrocode
+            </span>
+        </a>
+    </div>
 
-<div class="header-nav" [clr-nav-level]="1">
-    <a href="#company" class="nav-link"><span class="nav-text">COMPANY</span></a>
-    <a href="#products" class="nav-link" (click)="toTop()"><span class="nav-text">PRODUCTS</span></a>
-    <a href="#contact" class="nav-link"><span class="nav-text">CONTACT</span></a>
-</div>
-
-<div class="header-actions">
-    <a class="nav-link nav-icon-text">
-        <clr-icon shape="user" class="dark-matter"></clr-icon>
-        <span class="nav-text">SIGN IN</span>
-    </a>
-    <a *ngIf="false" class="nav-link nav-icon-text">
-        <clr-icon shape="user" class="dark-matter"></clr-icon>
-        <span class="nav-text">LOGOUT</span>
-    </a>
+    <div class="header-nav" [clr-nav-level]="1">
+        <a href="#company" class="nav-link"><span class="nav-text">COMPANY</span></a>
+        <a href="#products" class="nav-link" (click)="toTop()"><span class="nav-text">PRODUCTS</span></a>
+        <a href="#contact" class="nav-link"><span class="nav-text">CONTACT</span></a>
+    </div>
 </div>

@@ -1,0 +1,58 @@
+/* Header */
+.header-landing {
+  color: white;
+  background-color: #392f5a;
+}
+
+.nav-text {
+  color: white;
+}
+/* Body */
+.content-area {
+  padding: 0 !important;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 1rem;
+  min-height: 70%;
+}
+
+.dark-matter {
+  color: white;
+}
+
+.home {
+  background-color: #392f5a;
+  color: white !important;
+}
+
+.not-home {
+  background-color: #573497;
+  color: white !important;
+}
+
+.home h1,
+h4 {
+  color: white;
+}
+.not-home h1,
+p {
+  color: white;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  background-color: rgb(49, 49, 49);
+  text-align: center;
+  color: white;
+  padding-top: 50px;
+  padding-bottom: 70px;
+}
+
+footer a {
+  text-align: center;
+  color: white;
+  text-decoration: none;
+}
