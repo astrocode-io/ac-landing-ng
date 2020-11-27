@@ -1,11 +1,19 @@
 <div class="clr-row clr-align-items-center">
   <div *ngFor="let path of images" class="clr-col-12">
-    <div class="card ac-card">
+    <div
+      class="card ac-card"
+      ngClass="{{ size === 'large' ? 'ac-card-lg' : 'ac-card-sm' }}"
+    >
       <div class="card-img">
         <div class="clr-row clr-justify-content-center">
           <clr-icon
             attr.shape="{{ icon }}"
-            class="image-radius image-gradient"
+            class="image-radius"
+            [ngClass]="{
+              'image-gradient-teal': gradient === 'teal',
+              'image-gradient-blue': gradient === 'blue',
+              'image-gradient-purple': gradient === 'purple'
+            }"
           ></clr-icon>
         </div>
       </div>
