@@ -7,7 +7,7 @@
 
 .ac-card-sm {
   width: 20vw;
-  min-width: 300px;
+  min-width: 350px;
 }
 
 .ac-card-lg {
@@ -19,9 +19,9 @@
   text-align: start;
 }
 
-.card-image {
-  border-radius: 50% !important;
-  aspect-ratio: 1;
+.picture {
+  width: 30%;
+  height: 15vh;
 }
 
 .image-radius {
@@ -34,8 +34,6 @@
   background-position: center !important;
   object-fit: cover;
 }
-
-
 
 .image-default-gradient {
   /* box-shadow: 0px 10px 20px 0px rgba(102, 200, 151, 0.692308); */

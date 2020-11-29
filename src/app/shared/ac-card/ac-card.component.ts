@@ -7,12 +7,10 @@ import { Component, Input } from '@angular/core';
 export class AcCardComponent {
   @Input() title: string = '';
   @Input() description: string = '';
-  @Input() icon: string = '';
+  @Input() asset: string = '';
   @Input() size: string = 'small';
   @Input() gradient: string = 'blue';
-  public images: string[] = [
-    '../../../assets/gummy-sega-mega-drive.svg',
-  ];
+
   constructor() { }
 
 }
