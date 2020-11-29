@@ -6,3 +6,7 @@ section {
 .title {
   color: #0e0f1e;
 }
+
+.picture {
+  width: 50vh;
+}
