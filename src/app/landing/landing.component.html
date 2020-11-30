@@ -1,95 +1,14 @@
 <clr-main-container>
-  <clr-header class="header-rape">
-    <div class="branding">
-      <a href="/" class="nav-link">
-        <img style="color: white" src="../assets/Logo_white.svg" alt="logo" width="45px" />
-        <span class="title" style="color: white; padding-left: 1rem">
-          Astrocode
-        </span>
-      </a>
-    </div>
-
-    <div class="header-nav" [clr-nav-level]="1">
-      <a href="#company" class="nav-link"><span class="nav-text">COMPANY</span></a>
-      <a href="#products" class="nav-link" (click)="toTop()"><span class="nav-text">PRODUCTS</span></a>
-      <a href="#contact" class="nav-link"><span class="nav-text">CONTACT</span></a>
-    </div>
-
-    <div class="header-actions">
-      <a class="nav-link nav-icon-text">
-        <clr-icon shape="user" class="dark-matter"></clr-icon>
-        <span class="nav-text">SIGN IN</span>
-      </a>
-      <a *ngIf="false" class="nav-link nav-icon-text">
-        <clr-icon shape="user" class="dark-matter"></clr-icon>
-        <span class="nav-text">LOGOUT</span>
-      </a>
-    </div>
+  <clr-header class="header-landing ac-palette-1">
+    <landing-nav></landing-nav>
   </clr-header>
 
   <div class="content-container">
     <div class="content-area">
-
       <landing-home></landing-home>
-
-      <section #products class="home clr-row clr-align-items-center clr-justify-content-around">
-        <h1>Our best selling services</h1>
-
-        <div class="clr-break-row"></div>
-        <div class="clr-row clr-align-items-start clr-justify-content-around clr-col-sm-12 clr-col-lg-8">
-          <ac-card [title]="'Landings'" [icon]="'world'" [description]="
-              '
-          Pick from our beautifully crafted templates and customize it to your heatr\'s content.'
-            "></ac-card>
-
-          <ac-card [title]="'Mailing'" [icon]="'envelope'" [description]="
-              'Ever wanted to have your own corporate e-mail address? We can make that happen.'
-            "></ac-card>
-
-          <ac-card [title]="'Hosting'" [icon]="'host'" [description]="
-              'We provide the perfect hosting solution and for your great online services.'
-            "></ac-card>
-        </div>
-
-        <div class="clr-break-row"></div>
-
-        <div class="clr-row">
-          <div class="clr-col-12">
-            <div class="card">
-              <div class="card-header">Header</div>
-              <div class="card-block">
-                <div class="card-title">
-                  Blocssssssssssssssssssssssssssssssssk
-                </div>
-                <div class="card-text">...</div>
-              </div>
-              <div class="card-footer">
-                <button class="btn btn-sm btn-link">Footer Action 1</button>
-                <button class="btn btn-sm btn-link">Footer Action 2</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <landing-company></landing-company>
-
-      <footer #contact>
-        <ul>
-          <li>
-            <clr-icon shape="envelope"></clr-icon>
-            <a href="mailto:astrocode@gmail.com">astrocode@gmail.com</a>
-          </li>
-          <li>
-            <clr-icon shape="mobile"></clr-icon>
-            <a href="tel:+54878878777"> +54878878777 </a>
-          </li>
-          <li>
-            <clr-icon shape="network-globe"></clr-icon>
-            <a href="mailto:astrocode@gmail.com"> facebook.com/astrocode </a>
-          </li>
-        </ul>
-      </footer>
+      <landing-products></landing-products>
+      <landing-contact></landing-contact>
     </div>
   </div>
 </clr-main-container>

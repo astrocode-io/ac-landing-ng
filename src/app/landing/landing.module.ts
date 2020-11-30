@@ -6,6 +6,8 @@ import { SharedModule } from '../shared/shared.module';
 import { CompanyComponent } from './company/company.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProductsComponent } from './products/products.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     LandingComponent,
     CompanyComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProductsComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,

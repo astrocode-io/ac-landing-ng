@@ -1,0 +1,17 @@
+.nav-container {
+  width: 100%;
+  display: flex;
+}
+.logo {
+  color: #0e0f1e !important;
+}
+.logo-title {
+  margin-top: 0 !important;
+  color: #0e0f1e !important;
+  padding-left: 1rem !important;
+  font-weight: 400 !important;
+}
+.nav-text {
+  color: #0e0f1e;
+  font-weight: 600 !important;
+}
