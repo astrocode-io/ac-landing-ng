@@ -1,6 +1,20 @@
-
-
 .content-area {
   padding: 0 !important;
   overflow-x: hidden;
+}
+
+.navbar-inverse {
+  background-color: aqua;
+  transition: background-color 200ms linear;
+}
+
+@media screen and (min-width: 770px) {
+  .main-container header,
+  .main-container .header {
+    justify-content: center;
+  }
+}
+
+.landing-nav {
+  width: 100%;
 }
