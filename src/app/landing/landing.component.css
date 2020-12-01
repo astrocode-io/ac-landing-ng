@@ -3,6 +3,10 @@
   overflow-x: hidden;
 }
 
+.header-landing{
+  background-color: transparent;
+}
+
 .navbar-inverse {
   background-color: aqua;
   transition: background-color 200ms linear;
