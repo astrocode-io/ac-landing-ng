@@ -1,12 +1,37 @@
 section {
   padding: 1rem;
   min-height: 70%;
+  background: rgb(2, 0, 36);
+  background: -moz-linear-gradient(
+    40deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(143, 18, 254, 1) 0%,
+    rgba(98, 64, 249, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    40deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(143, 18, 254, 1) 0%,
+    rgba(98, 64, 249, 1) 100%
+  );
+  background: linear-gradient(
+    40deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(143, 18, 254, 1) 0%,
+    rgba(98, 64, 249, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endColorstr="#6240f9",GradientType=1);
+  height: 90vh;
 }
 
 .title {
-  color: #0e0f1e;
+  color: white;
 }
 
 .picture {
   width: 50vh;
+}
+
+.home-image {
+  text-align: center;
 }

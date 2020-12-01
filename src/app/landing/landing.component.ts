@@ -3,13 +3,12 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.css']
+  styleUrls: ['./landing.component.css'],
 })
 export class LandingComponent {
-
-  constructor() { }
+  constructor() {}
 
   public toTop() {
-    document.getElementById("products").scrollIntoView();
+    document.getElementById('products').scrollIntoView();
   }
 }
