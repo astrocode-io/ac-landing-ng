@@ -1,12 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
-html, body { max-width: 100%; overflow-x: hidden; }
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  color: white !important;
+  font-family: "Quicksand", sans-serif !important;
+}
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
 
 li {
-    list-style: none
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white !important;
+  font-family: "Quicksand", sans-serif !important;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 // /* width */
@@ -32,7 +49,7 @@ a {
 // }
 
 .ac-palette-1 {
-  background-color: #DEE3F1 !important;
+  background-color: #dee3f1 !important;
 }
 
 .ac-palette-2 {
@@ -40,22 +57,42 @@ a {
 }
 
 .ac-palette-3 {
-  background-color: #AFB3CB !important;
+  background-color: #afb3cb !important;
 }
 
 .ac-palette-4 {
-  background-color: #A2A6B7 !important;
+  background-color: #a2a6b7 !important;
 }
 
 .ac-palette-5 {
-  background-color: #464C5E !important;
+  background-color: #464c5e !important;
 }
 
 .ac-palette-6 {
-  background-color: #2E45A0 !important;
+  background-color: #2e45a0 !important;
 }
 
-
 .ac-palette-7 {
-  background-color: #0E0F1E !important;
+  background-color: #0e0f1e !important;
+}
+
+.ac-main-container-gradient {
+  background: -moz-linear-gradient(
+    40deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(143, 18, 254, 1) 0%,
+    rgba(98, 64, 249, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    40deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(143, 18, 254, 1) 0%,
+    rgba(98, 64, 249, 1) 100%
+  );
+  background: linear-gradient(
+    40deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(143, 18, 254, 1) 0%,
+    rgba(98, 64, 249, 1) 100%
+  );
 }

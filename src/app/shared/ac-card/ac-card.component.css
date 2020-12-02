@@ -15,8 +15,11 @@
   min-width: 350px;
 }
 
-.ac-card-body {
-  text-align: start;
+.title {
+  text-align: center;
+
+  padding-top: 8px;
+  color: black !important;
 }
 
 .picture {
@@ -43,35 +46,4 @@
     rgba(102, 200, 151, 0.692308) 53.13%,
     rgba(217, 212, 91, 0) 92.71%
   );
-}
-.image-gradient-teal {
-  /* box-shadow: 0px 10px 20px 0px rgba(102, 200, 151, 0.692308); */
-  background: linear-gradient(
-    45deg,
-    #33c4b2 29.69%,
-    rgba(102, 200, 151, 0.692308) 53.13%,
-    rgba(217, 212, 91, 0) 92.71%
-  );
-}
-.image-gradient-blue {
-  /* box-shadow: 0px 10px 20px 0px rgba(50, 170, 245, 0.74); */
-  background: linear-gradient(
-    45deg,
-    #2d8aee 34.04%,
-    rgba(50, 170, 245, 0.74) 66.71%,
-    rgba(55, 201, 251, 0.21) 92.71%
-  );
-}
-.image-gradient-purple {
-  /* box-shadow: 0px 10px 20px 0px rgba(128, 102, 200, 0.692308); */
-  background: linear-gradient(
-    45deg,
-    #3342c4 29.69%,
-    rgba(128, 102, 200, 0.692308) 58.48%,
-    rgba(169, 91, 217, 0) 92.71%
-  );
-}
-
-.title {
-  padding-top: 8px;
 }
