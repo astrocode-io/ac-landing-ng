@@ -6,7 +6,7 @@ description: |
 jobs:
   deploy:
     description: |
-      build the project and deploys to Cloudfront
+      Build the project and deploy to S3+Cloudfront
     docker:
       - image: circleci/node:12.18.3
     steps:
@@ -16,7 +16,7 @@ jobs:
             - dependencies-node-{{ checksum "package.json" }}
             - dependencies-node
       - run:
-          name: "Install dependencies and build project"
+          name: "Install dependencies and build"
           command: |
             npm install
             sudo npm i -g serverless
@@ -29,11 +29,17 @@ jobs:
             - node_modules
           key: dependencies-node-{{ checksum "package.json" }}
       - run:
-          name: "Deploy infrastructure"
+          name: "Create infrastructure"
           command: |
-            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${CIRCLE_BRANCH}
+            export ALIAS=dev.astrocode.io
+            STAGE=dev
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              STAGE=prod
+              ALIAS=astrocode.io
+            fi
+            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${STAGE}
             sls config credentials --provider aws --key ${AWS_ACCESS_KEY_ID} --secret ${AWS_SECRET_ACCESS_KEY} --region ${AWS_REGION}
-            sls deploy --stage dev -v
+            sls deploy --stage ${STAGE} -v
       - run:
           name: "Install PIP"
           command: sudo apt-get install python-pip python-dev
@@ -43,17 +49,35 @@ jobs:
       - run:
           name: "Deploy"
           command: |
-            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${CIRCLE_BRANCH}
+            export ALIAS=dev.astrocode.io
+            STAGE=dev
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              STAGE=prod
+              ALIAS=astrocode.io
+            fi
+            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${STAGE}
             serverless syncToS3
       - run:
-          name: "Print domain info"
+          name: "Domain info"
           command: |
-            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${CIRCLE_BRANCH}
+            export ALIAS=dev.astrocode.io
+            STAGE=dev
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              STAGE=prod
+              ALIAS=astrocode.io
+            fi
+            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${STAGE}
             serverless domainInfo
       - run:
           name: "Invalidate CloudFront Cache"
           command: |
-            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${CIRCLE_BRANCH}
+            export ALIAS=dev.astrocode.io
+            STAGE=dev
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              STAGE=prod
+              ALIAS=astrocode.io
+            fi
+            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${STAGE}
             serverless invalidateCloudFrontCache
 workflows:
   version: 2
@@ -64,4 +88,5 @@ workflows:
             branches:
               only:
                 - master
+                - develop
           context: astrocode-io

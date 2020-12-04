@@ -8,11 +8,13 @@ plugins:
 
 custom:
   s3Bucket: ${env:S3_BUCKET}
+  alias: ${env:ALIAS}
 
 provider:
   name: aws
   runtime: nodejs12.x
   region: us-east-1
+  stage: ${opt:stage, 'dev'}
 
 functions:
   securityHeaders:
@@ -75,7 +77,7 @@ resources:
           Enabled: 'true'
           ## Uncomment the following section in case you are using a custom domain
           Aliases:
-            - astrocode.io
+            - ${self:custom.alias}
           DefaultRootObject: index.html
           ## Since the Single Page App is taking care of the routing we need to make sure ever path is served with index.html
           ## The only exception are files that actually exist e.h. app.js, reset.css
