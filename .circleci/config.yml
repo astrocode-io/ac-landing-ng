@@ -31,13 +31,16 @@ jobs:
       - run:
           name: "Setup environment"
           command: |
-            export ALIAS=dev.astrocode.io
-            export STAGE=dev
+            alias=dev.astrocode.io
+            stage=dev
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              STAGE=prod
-              ALIAS=astrocode.io
+              stage=prod
+              alias=astrocode.io
             fi
-            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${STAGE}
+
+            echo 'export S3_BUCKET='${CIRCLE_PROJECT_REPONAME}-${stage} >> $BASH_ENV
+            echo 'export ALIAS='${alias} >> $BASH_ENV
+            echo 'export STAGE='${stage} >> $BASH_ENV
 
             echo "ENV:"
             echo ${S3_BUCKET}
