@@ -38,17 +38,15 @@ jobs:
               alias=astrocode.io
             fi
 
-            echo 'export S3_BUCKET='${CIRCLE_PROJECT_REPONAME}-${stage} >> $BASH_ENV
-            echo 'export ALIAS='${alias} >> $BASH_ENV
-            echo 'export STAGE='${stage} >> $BASH_ENV
-
-            echo "ENV:"
-            echo ${S3_BUCKET}
-            echo ${ALIAS}
-            echo ${STAGE}
+            echo "export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${stage}" >> $BASH_ENV
+            echo "export ALIAS=${alias}" >> $BASH_ENV
+            echo "export STAGE=${stage}" >> $BASH_ENV
       - run:
           name: "Create infrastructure"
           command: |
+            echo ${S3_BUCKET}
+            echo ${ALIAS}
+            echo ${STAGE}
             sls config credentials --provider aws --key ${AWS_ACCESS_KEY_ID} --secret ${AWS_SECRET_ACCESS_KEY} --region ${AWS_REGION}
             sls deploy --stage ${STAGE} -v
       - run:
