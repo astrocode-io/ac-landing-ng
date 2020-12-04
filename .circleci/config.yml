@@ -64,5 +64,4 @@ workflows:
             branches:
               only:
                 - master
-                - develop
           context: astrocode-io
