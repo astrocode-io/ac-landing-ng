@@ -65,4 +65,4 @@ workflows:
               only:
                 - master
                 - develop
-          context: maxidelgado
+          context: astrocode-io
