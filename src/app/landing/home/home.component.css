@@ -9,6 +9,10 @@ section {
   color: white;
 }
 
+.home-text {
+  padding-bottom: 20px;
+}
+
 .picture {
   width: 50vh;
 }

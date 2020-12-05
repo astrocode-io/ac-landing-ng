@@ -1,11 +1,13 @@
 section {
-  background-color: #392f5a;
-
+  background-color: #f9f9ed;
   color: white !important;
   padding: 1rem;
   min-height: 70%;
+  border-top: 2px solid #DDD;
+  border-bottom: 2px solid #DDD;
 }
 
 .title {
-  color: #0e0f1e;
+  color: #333;
+  font-weight: 700;
 }
