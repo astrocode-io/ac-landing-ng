@@ -14,6 +14,18 @@
     min-width: 0;
     overflow: hidden;
   }
+  .clr-nav-level-1 {
+    background: linear-gradient(
+      40deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(143, 18, 254, 1) 0%,
+      rgba(98, 64, 249, 1) 100%
+    ) !important;
+  }
+  .clr-nav-level-1 :hover {
+    background: transparent !important;
+
+  }
 }
 
 @media screen and (max-width: 576px) {
