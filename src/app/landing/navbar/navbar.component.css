@@ -3,6 +3,25 @@
   justify-content: space-around;
 }
 
+@media screen and (max-width: 768px) {
+  .nav-container {
+    display: flex;
+    justify-content: start;
+  }
+  .main-container .header .branding {
+    display: flex;
+    max-width: 12rem;
+    min-width: 0;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .branding {
+    max-width: 10rem !important;
+  }
+}
+
 .logo-title {
   margin-top: 0 !important;
   padding-left: 1rem !important;
