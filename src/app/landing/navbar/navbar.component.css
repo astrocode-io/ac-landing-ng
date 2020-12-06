@@ -3,6 +3,37 @@
   justify-content: space-around;
 }
 
+@media screen and (max-width: 768px) {
+  .nav-container {
+    display: flex;
+    justify-content: start;
+  }
+  .main-container .header .branding {
+    display: flex;
+    max-width: 12rem;
+    min-width: 0;
+    overflow: hidden;
+  }
+  .clr-nav-level-1 {
+    background: linear-gradient(
+      40deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(143, 18, 254, 1) 0%,
+      rgba(98, 64, 249, 1) 100%
+    ) !important;
+  }
+  .clr-nav-level-1 :hover {
+    background: transparent !important;
+
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .branding {
+    max-width: 10rem !important;
+  }
+}
+
 .logo-title {
   margin-top: 0 !important;
   padding-left: 1rem !important;
