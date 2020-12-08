@@ -4,12 +4,31 @@ footer {
   background-color: rgb(49, 49, 49);
   text-align: center;
   color: white;
-  padding-top: 50px;
-  padding-bottom: 70px;
+  padding-top: 40px;
+  padding-bottom: 30px;
 }
 
 footer a {
   text-align: center;
   color: white;
   text-decoration: none;
+}
+
+ul,
+li {
+  display: inline;
+}
+
+li {
+  padding: 5px;
+}
+
+h6 {
+  margin: 0px;
+  font-weight: 500;
+}
+
+img {
+  margin-left: 2px;
+  margin-right: 2px;
 }

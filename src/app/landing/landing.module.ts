@@ -8,8 +8,16 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
+import { GetStartedComponent } from './get-started/get-started.component';
 
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
 
+// Note we need a separate function as it's required
+// by the AOT compiler.
+export function playerFactory() {
+  return player;
+}
 @NgModule({
   declarations: [
     LandingComponent,
@@ -17,12 +25,15 @@ import { ContactComponent } from './contact/contact.component';
     HomeComponent,
     NavbarComponent,
     ProductsComponent,
-    ContactComponent
+    ContactComponent,
+    GetStartedComponent
   ],
   imports: [
     CommonModule,
     ClarityModule,
     SharedModule,
+    LottieModule.forRoot({ player: playerFactory })
+
   ]
 })
 export class LandingModule { }

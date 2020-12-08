@@ -3,15 +3,16 @@
   class="home clr-row clr-align-items-center clr-justify-content-around"
 >
   <div class="clr-row clr-align-items-center clr-col-md-8">
-    <div class="clr-col-6">
-      <img src="../../assets/clip-966.png" alt="logo" width="100%" />
+    <div class="clr-col-md-6">
+      <ng-lottie [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
+
     </div>
-    <div class="clr-col-6">
-      <h1 class="title">About us</h1>
+    <div class="clr-col-md-6">
+      <h1 class="title">Company</h1>
       <h4 class="description">
-        Astrocode took shape after realizing the market is overwhelmed with tons
-        of consulting companies but no solutions. We pride ourselves on beign
-        able to provide the best solution for our customers.
+        Astrocode is a team formed by software researchers with years of experience working in the field for many big companies.
+        Our skills range from Web development, web infraestructure to AI development.
+        Our goal is to provide affordable and reliable solutions that are also easy to use.
       </h4>
     </div>
   </div>

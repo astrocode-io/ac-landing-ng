@@ -29,15 +29,24 @@ jobs:
             - node_modules
           key: dependencies-node-{{ checksum "package.json" }}
       - run:
+          name: "Setup environment"
+          command: |
+            alias=dev.astrocode.io
+            stage=dev
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              stage=prod
+              alias=astrocode.io
+            fi
+
+            echo "export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${stage}" >> $BASH_ENV
+            echo "export ALIAS=${alias}" >> $BASH_ENV
+            echo "export STAGE=${stage}" >> $BASH_ENV
+      - run:
           name: "Create infrastructure"
           command: |
-            export ALIAS=dev.astrocode.io
-            STAGE=dev
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              STAGE=prod
-              ALIAS=astrocode.io
-            fi
-            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${STAGE}
+            echo ${S3_BUCKET}
+            echo ${ALIAS}
+            echo ${STAGE}
             sls config credentials --provider aws --key ${AWS_ACCESS_KEY_ID} --secret ${AWS_SECRET_ACCESS_KEY} --region ${AWS_REGION}
             sls deploy --stage ${STAGE} -v
       - run:
@@ -49,35 +58,14 @@ jobs:
       - run:
           name: "Deploy"
           command: |
-            export ALIAS=dev.astrocode.io
-            STAGE=dev
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              STAGE=prod
-              ALIAS=astrocode.io
-            fi
-            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${STAGE}
             serverless syncToS3
       - run:
           name: "Domain info"
           command: |
-            export ALIAS=dev.astrocode.io
-            STAGE=dev
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              STAGE=prod
-              ALIAS=astrocode.io
-            fi
-            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${STAGE}
             serverless domainInfo
       - run:
           name: "Invalidate CloudFront Cache"
           command: |
-            export ALIAS=dev.astrocode.io
-            STAGE=dev
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              STAGE=prod
-              ALIAS=astrocode.io
-            fi
-            export S3_BUCKET=${CIRCLE_PROJECT_REPONAME}-${STAGE}
             serverless invalidateCloudFrontCache
 workflows:
   version: 2
