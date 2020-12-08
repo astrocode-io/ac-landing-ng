@@ -19,14 +19,16 @@
     "@angular/platform-browser": "~10.1.6",
     "@angular/platform-browser-dynamic": "~10.1.6",
     "@angular/router": "~10.1.6",
+    "@auth0/auth0-angular": "^1.0.0",
     "@clr/angular": "4.0.6",
+    "@clr/icons": "4.0.6",
+    "@clr/ui": "4.0.6",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "lottie-web": "^5.7.5",
+    "ngx-lottie": "^6.4.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2",
-    "@clr/ui": "4.0.6",
-    "@clr/icons": "4.0.6",
-    "@auth0/auth0-angular": "^1.0.0",
-    "@webcomponents/webcomponentsjs": "^2.0.0"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.7",

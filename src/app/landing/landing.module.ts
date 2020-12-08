@@ -10,7 +10,14 @@ import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 import { GetStartedComponent } from './get-started/get-started.component';
 
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
 
+// Note we need a separate function as it's required
+// by the AOT compiler.
+export function playerFactory() {
+  return player;
+}
 @NgModule({
   declarations: [
     LandingComponent,
@@ -25,6 +32,8 @@ import { GetStartedComponent } from './get-started/get-started.component';
     CommonModule,
     ClarityModule,
     SharedModule,
+    LottieModule.forRoot({ player: playerFactory })
+
   ]
 })
 export class LandingModule { }
