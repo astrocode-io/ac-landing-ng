@@ -13,11 +13,8 @@
       <button class="btn btn-inverse">Coming soon</button>
     </div>
     <div class="clr-col-md-6 home-image pc">
-      <img
-        class="picture"
-        src="../../assets/vectors/Peach - DrawKit/Example Scenes/example-scene-2.svg"
-        alt="logo"
-      />
+      <ng-lottie [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
+
     </div>
   </div>
 </section>
