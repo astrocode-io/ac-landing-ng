@@ -11,8 +11,4 @@ export class CompanyComponent {
   options: AnimationOptions = {
     path: '../../../assets/animations/drawkit-grape-animation-4-LOOP.json',
   };
-
-  animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
-  }
 }
