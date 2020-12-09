@@ -7,9 +7,9 @@ import { AnimationOptions } from 'ngx-lottie';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   options: AnimationOptions = {
     path: '../../../assets/animations/drawkit-grape-animation-1-LOOP.json',
