@@ -14,8 +14,4 @@ export class HomeComponent implements OnInit {
   options: AnimationOptions = {
     path: '../../../assets/animations/drawkit-grape-animation-1-LOOP.json',
   };
-
-  animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
-  }
 }
