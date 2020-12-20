@@ -2,17 +2,31 @@
   display: flex;
   justify-content: space-around;
 }
+.nav-logo {
+  width: 45px !important;
+}
 
 @media screen and (max-width: 768px) {
-  .nav-container {
-    display: flex;
-    justify-content: start;
-  }
-  .main-container .header .branding {
+  .main-container .header {
     display: flex;
     max-width: 12rem;
     min-width: 0;
     overflow: hidden;
+  }
+  div.branding {
+    display: flex !important;
+    justify-content: center !important;
+    align-content: center !important;
+    min-width: 8rem !important;
+    margin-right: 60px !important;
+  }
+  div.nav-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-content: center !important;
+  }
+  .nav-logo {
+    width: 25px !important;
   }
   .clr-nav-level-1 {
     background: linear-gradient(
@@ -28,8 +42,20 @@
 }
 
 @media screen and (max-width: 576px) {
-  .branding {
-    max-width: 10rem !important;
+  div.branding {
+    display: flex !important;
+    justify-content: center !important;
+    align-content: center !important;
+    min-width: 8rem !important;
+    margin-right: 60px !important;
+  }
+  div.nav-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-content: center !important;
+  }
+  .nav-logo {
+    width: 25px !important;
   }
 }
 
