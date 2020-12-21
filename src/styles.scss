@@ -84,3 +84,10 @@ a {
     rgba(98, 64, 249, 1) 100%
   );
 }
+
+header .header-nav .nav-link:first-of-type::before,
+header .header-nav .nav-link:last-of-type::after,
+.header .header-nav .nav-link:first-of-type::before,
+.header .header-nav .nav-link:last-of-type::after {
+  background: none !important;
+}
